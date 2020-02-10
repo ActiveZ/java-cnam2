@@ -1,9 +1,9 @@
 package Exercice1;
 
-public class Exercice1 {
+public class Launch {
 
     public static void main(String[] args) {
-        System.out.println("---------- compteur 5 ------------");
+        System.out.println("---------- compteur 5 avec pas de 5 ------------");
         Compteur cpt5 = new Compteur();
         cpt5.getNumber();
         System.out.println();
@@ -26,4 +26,3 @@ public class Exercice1 {
 
     }
 }
-
