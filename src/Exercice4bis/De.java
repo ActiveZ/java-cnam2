@@ -6,13 +6,11 @@ public class De {
     Random rd = new Random();
     private  int nbFace=6;
 
-    public De(int nbFace) { // constructeur pour fixer le nb de face du dé
-        this.nbFace = nbFace;
-    }
+    // constructeur pour spécifier le nombre de face du dé
+    public De(int nbFace) { this.nbFace = nbFace;}
 
-    public De() { // constructeur par défaut: dé 6 faces
-        this.nbFace = 6;
-    }
+    // constructeur par défaut: dé à 6 faces
+    public De() {}
 
     public int lancer() {
         return (rd.nextInt(nbFace) + 1);
