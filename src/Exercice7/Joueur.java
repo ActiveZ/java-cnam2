@@ -29,12 +29,10 @@ public class Joueur {
         for (int i = 0; i < 6; i++) {
             tabLancer[i] = rd.nextInt(6) + 1;
         }
-        //int[] tabLancer = {1,2,3,4,5,6}; // pour debug
         score += scoreTirage(tabLancer);
-        //afficheTirage(); // pour debug
     }
 
-    private int scoreTirage (int[] tab) { // todo: procedure de test unitaire
+    private int scoreTirage (int[] tab) { // todo: test unitaire
         Arrays.sort(tab);
         int i = 0;
         int somme = -5;
@@ -45,19 +43,4 @@ public class Joueur {
         if (somme < 0) {somme = 0;} // cas ou joueur ne marque rien
         return somme;
     }
-
-
-
-/*
-    private void afficheTirage() { //pour debug
-        System.out.print("Tirage: ");
-        for (int i : tabLancer) {
-            System.out.print(i + ", ");
-        }
-        Arrays.sort(tabLancer);
-        System.out.println("Ts:" + Arrays.toString(tabLancer));
-        System.out.println("score inter: " + score);
-    }
-*/
-
 }
