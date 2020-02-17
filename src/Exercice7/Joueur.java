@@ -1,14 +1,63 @@
 package Exercice7;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Joueur {
-    public String  nom = "";
-    private De de = new De();
+    Random rd = new Random();
+    private String nomJoueur;
+    private int score = 0;
+    private int [] tabLancer = new int [6];
 
-    public Joueur(String nom) {
-        this.nom = nom;
-    } //constructeur
-
-    public int lanceDe () {
-        return de.lancer();
+    public Joueur(String nomJoueur) { // constructeur
+        this.nomJoueur = nomJoueur;
     }
+
+    public String getName() {
+        return nomJoueur;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public String getTirage() {
+        return Arrays.toString(tabLancer);
+    }
+
+    public void jouer() {
+        for (int i = 0; i < 6; i++) {
+            tabLancer[i] = rd.nextInt(6) + 1;
+        }
+        //int[] tabLancer = {1,2,3,4,5,6}; // pour debug
+        score += scoreTirage(tabLancer);
+        //afficheTirage(); // pour debug
+    }
+
+    private int scoreTirage (int[] tab) { // todo: procedure de test unitaire
+        Arrays.sort(tab);
+        int i = 0;
+        int somme = -5;
+        while(i < 6 && tab[i] == i+1) { // faire tests dans cet ordre !
+            somme +=5;
+            i++;
+        }
+        if (somme < 0) {somme = 0;} // cas ou joueur ne marque rien
+        return somme;
+    }
+
+
+
+/*
+    private void afficheTirage() { //pour debug
+        System.out.print("Tirage: ");
+        for (int i : tabLancer) {
+            System.out.print(i + ", ");
+        }
+        Arrays.sort(tabLancer);
+        System.out.println("Ts:" + Arrays.toString(tabLancer));
+        System.out.println("score inter: " + score);
+    }
+*/
+
 }
