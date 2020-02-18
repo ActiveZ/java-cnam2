@@ -13,7 +13,7 @@ public class Jeu {
         creationTablo();
     }
 
-    private void creationTablo() { //création du tableau des joueurs
+    public void creationTablo() { //création du tableau des joueurs
         for (int i = 0; i < nbJoueur; i++) {
             System.out.println("Nom du joueur " + (i+1) + " ?");
             String nom = sc.nextLine(); //récupération du nom du joueur
@@ -24,14 +24,17 @@ public class Jeu {
 
     public void demarreJeu() { // chaque joueur joue à tour de role jusqu'à avoir un gagnant (score>= 100)
         int i = 0;
+        int cpt = 1; // nombre de tours de jeu
         do {
             tabJoueur[i].jouer();
+
             System.out.println("Le joueur " + tabJoueur[i].getName() + " tire " + tabJoueur[i].getTirage() + " score total: " + tabJoueur[i].getScore());
             if (tabJoueur[i].getScore() < 100) { // passer au joueur suivant si pas tirage gagnant
                 i++;
-                if (i == tabJoueur.length) { // retour au début du tableau
+                if (i == tabJoueur.length) { // retour au début du tableau si arrivé à la fin
                     i = 0;
-                    System.out.println("Tour suivant:");
+                    cpt++;
+                    System.out.println("Tour suivant:" + "(" + cpt + ")");
                 }
             }
         } while (tabJoueur[i].getScore() < 100);

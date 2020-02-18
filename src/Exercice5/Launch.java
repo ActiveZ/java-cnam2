@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Launch {
     public static void main(String[] args) {
-        Angle angle = new Angle(60,"");
+        Angle angle = new Angle(90);
 
         System.out.println("Angle de base: " + angle.getAngleDeg());
         angle.addition(60);
