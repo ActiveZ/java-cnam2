@@ -7,7 +7,7 @@ public class Joueur {
     Random rd = new Random();
     private String nomJoueur;
     private int score = 0;
-    private int [] tabLancer = new int [6];
+    private int [] tabLancer = new int [6]; //
 
     public Joueur(String nomJoueur) { // constructeur
         this.nomJoueur = nomJoueur;
